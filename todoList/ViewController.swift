@@ -12,7 +12,7 @@ import RealmSwift
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
     
     let realm = try! Realm()
-    var todo = try! Realm().objects(TodoItem.self)
+    var todo = try! Realm().objects(TodoItem.self).sorted(byKeyPath: "item")
     var filtered = try! Realm().objects(TodoItem.self)
     var searchActive : Bool = false
     var delegate: ViewControllerItemDelete?
