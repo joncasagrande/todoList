@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63n-u0-hpQ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <color key="barTintColor" red="0.03444340353" green="0.59713230939999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,14 +36,14 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQj-Ne-CzE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="616"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="TIa-aE-qAV">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TIa-aE-qAV" id="HLX-cY-ML6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -53,40 +53,110 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zyb-lE-FbP"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bft-yZ-1U8">
+                                <rect key="frame" x="0.0" y="64" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6vn-WW-W03"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="63n-u0-hpQ" firstAttribute="leading" secondItem="QQj-Ne-CzE" secondAttribute="leading" id="2hf-kR-5Kr"/>
-                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="top" secondItem="63n-u0-hpQ" secondAttribute="bottom" id="6wf-I7-Oce"/>
-                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CYD-0F-FYV"/>
-                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HXT-xl-A9s"/>
-                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X9U-D9-QEX"/>
+                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="top" secondItem="bft-yZ-1U8" secondAttribute="bottom" id="FZy-eC-xRe"/>
+                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P5L-Zp-zwW"/>
+                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Sla-Ca-1TF"/>
+                            <constraint firstItem="bft-yZ-1U8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X1Z-n5-hCL"/>
+                            <constraint firstItem="bft-yZ-1U8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fKc-te-Ahf"/>
                             <constraint firstItem="63n-u0-hpQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hM9-a8-Usd"/>
+                            <constraint firstItem="QQj-Ne-CzE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rXH-8Q-r7c"/>
+                            <constraint firstItem="bft-yZ-1U8" firstAttribute="top" secondItem="63n-u0-hpQ" secondAttribute="bottom" id="rwc-XN-Wy1"/>
                             <constraint firstItem="63n-u0-hpQ" firstAttribute="trailing" secondItem="QQj-Ne-CzE" secondAttribute="trailing" id="wog-1V-Zyl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="searchDisplayController" destination="OGK-w3-hgx" id="Pyf-Ub-W3e"/>
+                        <outlet property="searchViewController" destination="bft-yZ-1U8" id="giI-YD-KOQ"/>
                         <outlet property="tabView" destination="QQj-Ne-CzE" id="NfR-ZT-CfV"/>
                     </connections>
                 </viewController>
+                <searchDisplayController id="OGK-w3-hgx">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="9Gp-rh-uiS"/>
+                        <outlet property="searchBar" destination="bft-yZ-1U8" id="z5h-h1-siV"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="IhW-lU-LIE"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="28q-aI-l2k"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="uRj-dX-Ad8"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-167.19999999999999" y="-413.3433283358321"/>
+            <point key="canvasLocation" x="-55" y="-414"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Item View Controller-->
         <scene sceneID="gdr-6I-sAe">
             <objects>
-                <viewController id="Epw-IE-Ueo" sceneMemberID="viewController">
+                <viewController id="Epw-IE-Ueo" customClass="AddItemViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cAh-SN-cE9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2PQ-wz-BOv" customClass="Ad">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <color key="barTintColor" red="0.03444340353" green="0.59713230939999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Add item" id="cMu-Z2-HlR">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="qjj-0X-7YB">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="dismiss:" destination="Epw-IE-Ueo" id="gse-a3-6x7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1d-tE-FhH">
+                                <rect key="frame" x="90" y="206" width="234" height="30"/>
+                                <color key="backgroundColor" red="0.034443403529376249" green="0.59713230939149331" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addItem:" destination="Epw-IE-Ueo" eventType="touchUpInside" id="Bpj-BX-7XA"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zbg-PV-yuO">
+                                <rect key="frame" x="20" y="168" width="382" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h1d-tE-FhH" firstAttribute="leading" secondItem="TKj-PH-NoJ" secondAttribute="leading" constant="90" id="2M0-mL-Bm6"/>
+                            <constraint firstItem="Zbg-PV-yuO" firstAttribute="leading" secondItem="TKj-PH-NoJ" secondAttribute="leading" constant="20" id="2Mt-Rb-U0v"/>
+                            <constraint firstItem="TKj-PH-NoJ" firstAttribute="trailing" secondItem="Zbg-PV-yuO" secondAttribute="trailing" constant="12" id="2XY-Lq-zhO"/>
+                            <constraint firstItem="h1d-tE-FhH" firstAttribute="top" secondItem="Zbg-PV-yuO" secondAttribute="bottom" constant="8" id="5xX-08-Qbi"/>
+                            <constraint firstItem="2PQ-wz-BOv" firstAttribute="top" secondItem="TKj-PH-NoJ" secondAttribute="top" id="Kt4-YS-1iw"/>
+                            <constraint firstItem="2PQ-wz-BOv" firstAttribute="centerX" secondItem="Zbg-PV-yuO" secondAttribute="centerX" constant="-4" id="NAc-O4-YQF"/>
+                            <constraint firstItem="h1d-tE-FhH" firstAttribute="centerX" secondItem="Zbg-PV-yuO" secondAttribute="centerX" constant="-4" id="NVC-Lv-sMv"/>
+                            <constraint firstItem="Zbg-PV-yuO" firstAttribute="top" secondItem="2PQ-wz-BOv" secondAttribute="bottom" constant="104" id="c91-0S-Wzs"/>
+                            <constraint firstItem="2PQ-wz-BOv" firstAttribute="leading" secondItem="cAh-SN-cE9" secondAttribute="leading" id="npp-Cj-N2Y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="TKj-PH-NoJ"/>
                     </view>
+                    <connections>
+                        <outlet property="itemTV" destination="Zbg-PV-yuO" id="4UW-rM-67Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efd-I6-vWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="726" y="-413"/>
+            <point key="canvasLocation" x="725.60000000000002" y="-413.3433283358321"/>
         </scene>
     </scenes>
 </document>

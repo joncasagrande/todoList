@@ -7,10 +7,8 @@
 //
 
 import Foundation
-class TodoItem{
-    var item: String = ""
+import RealmSwift
+class TodoItem : Object{
+    @objc dynamic var item = ""
     
-    init(item: String) {
-        self.item = item
-    }
 }
