@@ -10,11 +10,10 @@ import UIKit
 import Realm
 import RealmSwift
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
-
-    var todo:[TodoItem] = []
-    var filtered:[TodoItem] = []
+    
     let realm = try! Realm()
-    let results = try! Realm().objects(TodoItem.self)
+    var todo = try! Realm().objects(TodoItem.self)
+    var filtered = try! Realm().objects(TodoItem.self)
     var searchActive : Bool = false
     
     @IBOutlet weak var tabView: UITableView!
@@ -24,8 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print(results.count)
-        print(results[0].item)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,9 +48,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         if editingStyle == UITableViewCellEditingStyle.delete{
-            todo.remove(at: indexPath.row)
+            realm.beginWrite()
+            realm.delete(todo[indexPath.row])
+            try! realm.commitWrite()
             tableView.reloadData()
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        self.performSegue(withIdentifier: "itemDetail", sender: self)
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -73,12 +75,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filtered = todo.filter({ (text) -> Bool in
-            let tmp: NSString = text.item as NSString
-            let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-            return range.location != NSNotFound
-        })
+        let predicate = NSPredicate(format: "item CONTAINS %@", searchText.lowercased())
+
+        filtered = try! Realm().objects(TodoItem.self).filter(predicate)
+        print(filtered.count)
         if(filtered.count == 0){
             searchActive = false;
         } else {
@@ -86,5 +86,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         self.tabView.reloadData()
     }
+    
 }
-
+protocol ViewControllerItemDelete {
+    func sendItem(itemId: TodoItem)
+}
