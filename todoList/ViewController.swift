@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var todo = try! Realm().objects(TodoItem.self)
     var filtered = try! Realm().objects(TodoItem.self)
     var searchActive : Bool = false
-    
+    var delegate: ViewControllerItemDelete?
     @IBOutlet weak var tabView: UITableView!
     
     @IBOutlet weak var searchViewController: UISearchBar!
@@ -55,6 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        delegate?.sendItem(item: todo[indexPath.row])
         self.performSegue(withIdentifier: "itemDetail", sender: self)
     }
 
@@ -89,5 +90,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 }
 protocol ViewControllerItemDelete {
-    func sendItem(itemId: TodoItem)
+    func sendItem(item: TodoItem)
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 import RealmSwift
-class AddItemViewController: UIViewController{
+class AddItemViewController: UIViewController, ViewControllerItemDelete{
     let realm = try! Realm()
     var todo = TodoItem.init()
     @IBOutlet weak var itemTV: UITextField!
@@ -41,11 +41,11 @@ class AddItemViewController: UIViewController{
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-}
-extension AddItemViewController: ViewControllerItemDelete{
     func sendItem(item: TodoItem){
         todo = item
+        itemTV.text = todo.item
     }
 }
+
 
 
